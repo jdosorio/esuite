@@ -1,0 +1,394 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "AdminLTE v4 | Facturación en admisión ambulatoria"
+const path = "../../dist"
+const mainPage = "facturacion-hospitalaria"
+const page = "admision-ambulatoria";
+---
+
+<!doctype html>
+<html lang="en">
+  <!--begin::Head-->
+  <head>
+    <Head title={title} path={path} />
+    <style>
+      .form-label-sm {
+        font-size: 0.8rem;
+        margin-bottom: 0.1rem;
+      }
+      .form-control-sm, .form-select-sm {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+      }
+      .card-body-compact {
+        padding: 0.5rem;
+      }
+      .bottom-toolbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 0.5rem;
+        z-index: 1030;
+        margin-left: 250px; /* Sidebar width approximation */
+        transition: margin-left 0.3s ease-in-out;
+      }
+      body.sidebar-collapse .bottom-toolbar {
+        margin-left: 4.6rem;
+      }
+      .app-main {
+        padding-bottom: 60px; /* Space for toolbar */
+      }
+      .section-title {
+        color: #0d6efd;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <Topbar path={path} />
+      <Sidenav path={path} mainPage={mainPage} page={page} />
+      <!--begin::App Main-->
+      <main class="app-main">
+        <!--begin::App Content Header-->
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-8">
+                <h3 class="mb-0 fs-5">Facturación en admisión ambulatoria [763640379501] HOSPITAL PILOTO JAMUNDI - ESE</h3>
+                <small class="text-primary">[FINT] Orden de Internacion número [981]</small>
+              </div>
+              <div class="col-sm-4 text-end">
+                <small class="text-muted">viernes, 24 de octubre de 2025; 16:48:50</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content">
+          <div class="container-fluid">
+            
+            <!-- Patient Info Card (Reused) -->
+            <div class="card mb-2">
+              <div class="card-body card-body-compact">
+                <div class="row g-2">
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">Historia clínica</label>
+                    <input type="text" class="form-control form-control-sm" value="0000001">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">1er apellido</label>
+                    <input type="text" class="form-control form-control-sm" value="USUARIO">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">2do apellido</label>
+                    <input type="text" class="form-control form-control-sm" value="ENTORNO">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">1er nombre</label>
+                    <input type="text" class="form-control form-control-sm" value="PRUEBAS">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">2do nombre</label>
+                    <input type="text" class="form-control form-control-sm">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">Nacido el</label>
+                    <input type="text" class="form-control form-control-sm" value="23/10/1990">
+                  </div>
+                </div>
+                <div class="row g-2 mt-1">
+                   <div class="col-md-1">
+                    <label class="form-label form-label-sm">Edad</label>
+                    <input type="number" class="form-control form-control-sm" value="35">
+                  </div>
+                  <div class="col-md-1">
+                     <label class="form-label form-label-sm">&nbsp;</label>
+                     <select class="form-select form-select-sm"><option>Años</option></select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">Cert. nacido vivo</label>
+                    <input type="text" class="form-control form-control-sm">
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label form-label-sm">Sexo biológico</label>
+                    <select class="form-select form-select-sm"><option>Femenino</option></select>
+                  </div>
+                  <div class="col-md-1">
+                    <label class="form-label form-label-sm">Embzda</label>
+                    <input type="checkbox" class="form-check-input">
+                  </div>
+                </div>
+                
+                <hr class="my-2">
+
+                <div class="row g-2">
+                    <div class="col-md-3">
+                        <label class="form-label form-label-sm">Nacionalidad</label>
+                        <div class="d-flex gap-1">
+                            <input type="text" class="form-control form-control-sm" style="width: 50px;" value="170">
+                            <input type="text" class="form-control form-control-sm flex-grow-1" value="COLOMBIA">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label form-label-sm">Identificación</label>
+                        <div class="input-group input-group-sm">
+                            <select class="form-select" style="max-width: 70px;"><option>CC</option></select>
+                            <input type="text" class="form-control" value="0000001">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label form-label-sm">Municipio y dirección de residencia</label>
+                        <div class="d-flex gap-1">
+                            <input type="text" class="form-control form-control-sm" style="width: 50px;" value="76">
+                            <input type="text" class="form-control form-control-sm" style="width: 50px;" value="364">
+                            <input type="text" class="form-control form-control-sm flex-grow-1" value="JAMUNDI">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label form-label-sm">Teléfono(s)</label>
+                        <input type="text" class="form-control form-control-sm" value="602 868676">
+                    </div>
+                </div>
+
+                <div class="row g-2 mt-1">
+                    <div class="col-md-3">
+                        <label class="form-label form-label-sm">País residencia</label>
+                        <div class="d-flex gap-1">
+                            <input type="text" class="form-control form-control-sm" style="width: 50px;" value="170">
+                            <input type="text" class="form-control form-control-sm flex-grow-1" value="Colombia">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label form-label-sm">Barrio</label>
+                        <div class="d-flex gap-1">
+                            <input type="text" class="form-control form-control-sm" style="width: 50px;" value="050">
+                            <input type="text" class="form-control form-control-sm flex-grow-1" value="CIUDADELA TERRANOVA">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label form-label-sm">Ocupación habitual</label>
+                        <div class="d-flex gap-1">
+                            <input type="text" class="form-control form-control-sm" style="width: 60px;" value="9999">
+                            <input type="text" class="form-control form-control-sm flex-grow-1" value="Personas que no han declarado ocupación">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-2 mt-1">
+                    <div class="col-md-4">
+                        <label class="form-label form-label-sm">Población especial</label>
+                        <select class="form-select form-select-sm"><option>Ninguno</option></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label form-label-sm">Correo electrónico</label>
+                        <input type="email" class="form-control form-control-sm" value="facturaCIONELECTRONICAHPJ@GMAIL.COM">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label form-label-sm">Orientación sexual</label>
+                        <select class="form-select form-select-sm"><option>Intersexual</option></select>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insurance Info Card -->
+            <div class="card mb-2">
+                <div class="card-body card-body-compact">
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Régimen de seguridad social</label>
+                            <select class="form-select form-select-sm">
+                                <option>Subsidiado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label form-label-sm">Empresa</label>
+                            <div class="d-flex gap-1">
+                                <input type="text" class="form-control form-control-sm" style="width: 70px;" value="ESS024">
+                                <input type="text" class="form-control form-control-sm flex-grow-1" value="COOSALUD ENTIDAD PROMOTORA DE SALUD">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label form-label-sm">Nivel</label>
+                            <div class="d-flex gap-1">
+                                <input type="text" class="form-control form-control-sm" style="width: 40px;" value="01">
+                                <input type="text" class="form-control form-control-sm flex-grow-1" value="NIVEL 1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Número de afiliación</label>
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Facturado a</label>
+                            <select class="form-select form-select-sm">
+                                <option>Subsidiado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label form-label-sm">Empresa</label>
+                            <div class="d-flex gap-1">
+                                <input type="text" class="form-control form-control-sm" style="width: 70px;" value="ESS024">
+                                <input type="text" class="form-control form-control-sm flex-grow-1" value="COOSALUD ENTIDAD PROMOTORA DE SALUD">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label form-label-sm">Nivel</label>
+                            <div class="d-flex gap-1">
+                                <input type="text" class="form-control form-control-sm" style="width: 40px;" value="01">
+                                <input type="text" class="form-control form-control-sm flex-grow-1" value="NIVEL 1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Número de afiliación</label>
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clinical Info -->
+            <div class="card mb-2">
+                <div class="card-body card-body-compact">
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label class="form-label form-label-sm">Observaciones</label>
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Modalidad</label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text"><i class="bi bi-clipboard"></i></span>
+                                <select class="form-select">
+                                    <option>Intramural</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label form-label-sm">Entorno</label>
+                            <select class="form-select form-select-sm">
+                                <option>Institucional</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la admisión -->
+            <div class="card mb-5">
+                <div class="card-body card-body-compact">
+                    <h6 class="section-title">Datos de la admisión</h6>
+                    
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Profesional que ordena</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Profesional que realiza</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Centro de producción</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Procedimiento</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                        <label class="col-sm-1 col-form-label col-form-label-sm text-end">Ordenado</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Contrato</label>
+                        <div class="col-sm-4">
+                            <select class="form-select form-select-sm"><option></option></select>
+                        </div>
+                        <label class="col-sm-2 col-form-label col-form-label-sm text-end">Por facturar</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                         <label class="col-sm-1 col-form-label col-form-label-sm text-end">Procesado</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                    <div class="row g-1 mb-1 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm">Causa</label>
+                        <div class="col-sm-10">
+                            <div class="d-flex gap-1">
+                                <input type="text" class="form-control form-control-sm" style="width: 150px;">
+                                <input type="text" class="form-control form-control-sm flex-grow-1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-1 mt-3 align-items-center">
+                        <label class="col-sm-2 col-form-label col-form-label-sm fw-bold">Fecha del documento:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control form-control-sm" value="24/10/2025 16:48:31">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <!--end::App Content-->
+      </main>
+      <!--end::App Main-->
+      
+      <!-- Bottom Toolbar -->
+      <div class="bottom-toolbar d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-1">
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-calendar3"></i> Consultar citas</button>
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-fingerprint"></i> Biometría</button>
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-file-text"></i> Anexo 1</button>
+            <button class="btn btn-secondary btn-sm" disabled><i class="bi bi-calculator"></i> Facturación</button>
+        </div>
+        <div class="d-flex gap-1">
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-person-lines-fill"></i> Triage</button>
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-clock-history"></i> Atenciones anteriores</button>
+            <button class="btn btn-secondary btn-sm"><i class="bi bi-search"></i> Buscar órdenes</button>
+            <button class="btn btn-secondary btn-sm"><i class="bi bi-wallet2"></i> Saldos</button>
+            <button class="btn btn-secondary btn-sm"><i class="bi bi-people"></i> Derechos</button>
+            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-card-list"></i> Tarjetero</button>
+            <button class="btn btn-outline-primary btn-sm"><i class="bi bi-file-earmark-plus"></i> Nuevo</button>
+            <button class="btn btn-outline-primary btn-sm"><i class="bi bi-save"></i> Grabar</button>
+            <button class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i> Salir</button>
+        </div>
+      </div>
+
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <Scripts path={path} />
+    <!--end::Script-->
+  </body><!--end::Body-->
+</html>

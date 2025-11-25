@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
+import { fileURLToPath, URL } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,6 +24,11 @@ export default defineConfig({
     port: 3000
   },
   vite: {
+    resolve: {
+      alias: {
+        '@components': fileURLToPath(new URL('../html/components', import.meta.url)),
+      },
+    },
     server: {
       host: '0.0.0.0',
       watch: {
