@@ -4,6 +4,8 @@ import { fileURLToPath, URL } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://jdosorio.github.io',
+  base: '/esuite',
   output: 'static',
   build: {
     // Example: Generate `page.html` instead of `page/index.html` during build.
