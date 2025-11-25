@@ -3,6 +3,8 @@ import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://jdosorio.github.io/esuite/',
+  base: '/esuite/',
   output: 'static',
   build: {
     // Example: Generate `page.html` instead of `page/index.html` during build.
